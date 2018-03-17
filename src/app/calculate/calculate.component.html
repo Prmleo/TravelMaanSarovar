@@ -1,0 +1,543 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<app-nav-bar></app-nav-bar>
+<br>
+<!--
+  <div class="col-md-12 col-sm-12 ">
+    <div class="widget todo-widget">
+      <header class="widget-header">
+        <h4 class="widget-title">Insured Information</h4>
+      </header>
+      <hr class="widget-separator">
+      <div class="widget-body">
+        <form class="form-horizontal" action="" role="form" #f="ngForm" novalidate>
+          <div id="total">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Title:</label>
+              <div class="col-sm-2">
+                  <select class="form-control">
+                      <option>Mr</option>
+                      <option >Mrs</option>
+                      <option >Dr</option>
+                      <option >M/s</option>
+                      <option >Miss</option>
+                      <option >Ms</option>
+                    </select>
+              </div>
+            </div>
+          </div>
+          <div id=total1>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">City:</label>
+              <div class="col-sm-2">
+                <select class="form-control" placeholder="" name='Occupation' [(ngModel)]='user.occupations' (change)='loadAllOccupation();'>
+                  <option *ngFor="let occu of Occupations" [ngValue]='Occupation'>{{occu.occupationName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id=total2>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">BuildingNo:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total3>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">City:</label>
+              <div class="col-sm-2">
+                <select class="form-control" placeholder="" name='Occupation' [(ngModel)]='user.occupations' (change)='loadAllOccupation();'>
+                  <option *ngFor="let occu of Occupations" [ngValue]='Occupation'>{{occu.occupationName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id=total4>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Street:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total5>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">FullName(English):</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total6>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Nationality:</label>
+              <div class="col-sm-2">
+                  <select class="form-control" id="idselect">
+                      <option *ngFor="let nati  of Nationalitys">{{city.nationalityName}}</option>
+                     </select>
+              </div>
+            </div>
+          </div>
+          <div id=total7>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Cast.Additional.No:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total10>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Neighboarhood:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total11>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Full Name(Arabic):</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total8>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Postal Code:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          <div id=total9>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Unit.No:</label>
+              <div class="col-sm-2">
+                <input type="text" name="outletName" class="form-control" id="inputPassword3">
+              </div>
+            </div>
+          </div>
+          
+          <div id="divId">
+          <hr class="widget-separator">
+          <header class="widget-header">
+              <h4 class="widget-title">Communication Address</h4>
+            </header>
+            <hr class="widget-separator">
+          </div>
+
+          <div id="divId1">
+          <div class="form-group">
+              <label class="col-sm-2 control-label">Address Type:</label>
+              <div class="timepicker col-sm-4 ">
+                  <input type="radio" name="startTime"> Pobox Address
+                   &nbsp;&nbsp;
+                  <input type="radio" name="endTime" > Wasel Address
+              </div>
+            </div>
+            </div>
+            <div id=total11>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">City:</label>
+                  <div class="col-sm-2">
+                      <select class="form-control" id="idselect">
+                          
+                         </select>
+                  </div>
+                </div>
+              </div>
+              <div id=total8>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Building No:</label>
+                    <div class="col-sm-2">
+                      <input type="text" name="outletName" class="form-control" id="inputPassword3">
+                    </div>
+                  </div>
+                </div>
+                <div id=total8>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Postal Code:</label>
+                      <div class="col-sm-2">
+                        <input type="text" name="outletName" class="form-control" id="inputPassword3">
+                      </div>
+                    </div>
+                  </div>
+                  <div id=total13>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Neighboarhood:</label>
+                        <div class="col-sm-2">
+                          <input type="text" name="outletName" class="form-control" id="inputPassword3">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                  -->
+
+
+                  <!-- <style>
+                    @media (min-width: 768px) {
+                      .modal-dialog {
+                        width: 600;
+                        margin: 30px auto;
+                      }
+                      .modal-content {
+                        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+                      }
+                      .modal-sm {
+                        width: 300px;
+                      }
+                      .custom-class {
+                        width: 60%;
+                      }
+                    }
+                  
+                    hr.line {
+                      border-top: 1px solid #8c8b8b;
+                    }
+                  
+                    .box {
+                      max-width: 800px;
+                      padding: 40px 20px;
+                      padding-top: 0px;
+                      background: #ebeff2;
+                      margin-top: 20px;
+                    }
+                  </style> -->
+                  <!-- <router-outlet></router-outlet> -->
+                  
+                  <nav class="navbar navbar-default" style="border:0px solid red;margin-bottom: 0px;">
+                    <div class="container-fluid" style="height: 140px;">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" style="margin-top:0px;">
+                          <!-- <span style="color:#F58320;font-size: 34px;">
+                                        Online Matrimony
+                                     </span>  -->
+                  
+                          <!-- <form #form='ngForm'>-->
+                          <!-- <select2 [data]="castes"  ></select2> -->
+                          <!-- </form>  -->
+                        </a>
+                      </div>
+                    </div>
+                  </nav>
+                  
+                  <div class="container" id="">
+                    <div class="container box">
+                      <h3>Insured Information</h3>
+                      <hr class="line" />
+                      <form class="form-horizontal">
+                        <div id="div_id_username" class="form-group required">
+                          <label for="id_username" class="control-label col-md-4  requiredField">
+                            Title:
+                          </label>
+                          <div class="controls col-md-4 ">
+                            <select class="form-control">
+                              <option>Mr</option>
+                              <option>Mrs</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div  class="form-group">
+                          <label class="control-label col-md-4"> Occupation:</label>
+                          <div class="controls col-md-4 ">
+                            <!-- <select class="form-control" placeholder="" name='occupations' [(ngModel)]='user.occupations.id' (change)='loadAllOccupation();'>
+                              <option *ngFor="let oc of occupations | async" value='{{oc.id}}'>{{oc.occupationName}}</option>
+                            </select> -->
+                            <select class="form-control" placeholder="Occupation">
+                              <option *ngFor="let occu of Occupations" >{{occu.occupationName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="div_id_username" class="form-group required">
+                          <label for="id_username" class="control-label col-md-4  requiredField"> City:</label>
+                          <div class="controls col-md-4 ">
+                            <select class="form-control" placeholder="City">
+                              <option *ngFor="let city of Citys">{{city.citiesName}}</option>
+                            </select>
+                          </div>
+                        </div>                  
+                        <div id="div_id_username" class="form-group required">
+                          <label for="id_username" class="control-label col-md-4  requiredField"> Nationality:</label>
+                          <div class="controls col-md-4 ">
+                            <select class="form-control" placeholder="Nationality">
+                              <option *ngFor="let na of Nationalitys">{{na.nationalityName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Street</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='street' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.street'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Building No</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.buildingNumber'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            FullName(English)</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.firstName'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Cast.Additional.No</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.additionalNumber'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Postal Code</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.insPoCode'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Unit.no</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.unitNo'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <h3>Communication Address</h3>
+                        <hr class="line" />
+                  
+                        <div id="div_id_select" class="form-group required">
+                          <label for="id_select" class="control-label col-md-4  requiredField"> Address Type
+                            <span class="asteriskField">*</span>
+                          </label>
+                          <div class="controls col-md-8 " style="margin-bottom: 10px">
+                            <label class="radio-inline">
+                              <input type="radio" [(ngModel)]='user.drinkingHabitsYes' name="drinkYes" id="drinkYes1" [value]="true" (click)='clearDrinkingHabits();'
+                                style="margin-bottom: 10px">Pobox Address
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" [(ngModel)]='user.drinkingHabitsYes' name="drinkYes" id="drinkYes2" [value]="false" (click)='clearDrinkingHabits();'
+                                style="margin-bottom: 10px"> Wasel Address
+                            </label>
+                          </div>  
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Building.no</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.buildingNumber'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Additional Number</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.additionalNumber'>
+                            </span>
+                          </div>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Postal Code</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='income1' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.insPobox'>
+                            </span>
+                          </div>
+                        </div>
+                        <div id="div_id_username" class="form-group required">
+                          <label for="id_username" class="control-label col-md-4  requiredField"> City:</label>
+                          <div class="controls col-md-4 ">
+                            <select class="form-control" placeholder="City">
+                              <option *ngFor="let city of Citys">{{city.citiesName}}</option>
+                            </select>
+                          </div>
+                        </div>  
+                        
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-4 control-label">
+                            Neighbourhood</label>
+                          <div class="col-sm-8">
+                            <span class="col-md-6" style="padding-left:0px;">
+                              <input type="text" name='neighbourhood' class="form-control" id="inputPassword3" placeholder=" " required [(ngModel)]='user.neighborhood'>
+                            </span>
+                          </div>
+                        </div>
+
+               
+                      </form>
+                    </div>
+                    </div>
+                    
+
+                        <br>
+                    <div id="total01">   
+                        <p id="head"class="panel-title text-center" ><font top="30px;" color="white"><i class="fa fa-sign-in" aria-hidden="true"></i>PREMIUM DETAILS</font></p>
+                       Premium <label id="lab"  >SAR</label>
+                       <input id="premium" style="width:500px;" class="form-control"/>
+                       <br><br>
+                       Premium Tax<label id="labTax" >SAR</label>
+                       <input id="premium" style="width:500px;" class="form-control"/>
+                       <br><br>
+                       VAT 5%<label id="labVat" >SAR</label>
+                       <input id="premium" style="width:500px;" class="form-control"/>
+                       <br><br>
+                       Total Premium Payable<label id="labTotal" >SAR</label>
+                       <input id="premium" style="width:500px;" class="form-control"/>
+                      </div>
+                      
+                      <br><br>
+                      
+                      <div id="total0">   
+                        <p id="head"class="panel-title text-center" ><font top="30px;" color="white"><i class="fa fa-sign-in" aria-hidden="true"></i>Declaration</font></p>
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                        Email Quote
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                        I do hereby declare that the above statement is true to the best of my knowledge and belief, and that I understand it is made for use as evidence in court and is subject to penalty for perjury. I further understand that cover shall only be applicable once my vehicle is inspected and verified by Gulf General Cooperative Insurance Officer and certificate is delivered.
+                      </div>
+                      <br>
+                      <br>
+                      <div id="total0">   
+                        <p id="head"class="panel-title text-center" ><font top="30px;" color="white"><i class="fa fa-sign-in" aria-hidden="true"></i>Mode Of Payment</font></p>
+                       <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="optradio"/>Debit Account
+                        <br>
+                      </div>
+                 
+                      <br>
+                      
+                      <br><br>
+                      <div id="total0">
+                      <details>
+                        <summary id="head" ><font top="30px;" color="white"><i class="fa fa-sign-in" aria-hidden="true"></i>SUMMARY OF POLICY DETAILS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Scheme Cover: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Travel Covers:</font></summary>
+                          
+                        <table border="2" style="width:1270px">
+                          <tr style="background-color: bisque">
+                            <th>Covers</th>
+                            <th>Scheme(SAR)</th>
+                            <th>Scheme(USD)</th>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td>100000</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Personal Accident</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                      
+                          
+                        </table>
+                      </details>
+                      </div>
+       
+   
+    <!-- .widget -->
+ 
+<!-- .row -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

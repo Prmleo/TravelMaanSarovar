@@ -1,0 +1,469 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<br><br>
+<form [formGroup]="myFormObject" >
+<div class="container-fluid" id="panel">
+        <div class="panel panel-primary">
+           <div class="panel-heading clearfix" id="head">
+          <h3 class="panel-title">Insured Information</h3>
+        </div> 
+          <div class="panel-body">      
+              <form action="/action_page.php" [formGroup]="myFormObject" >        
+                       
+                <div class="row">
+                        <div class="col-sm-4">
+                               <label for="name" class="control-label"></label>
+                                <select value="select" class="form-control" formControlName="cusNameEnglishHeader" placeholder="select tittle" style="height:35px;">
+                                       <option><b>Mr</b></option>
+                                       <option ><b>Mrs</b></option>
+                                       <option ><b>Dr</b></option>
+                                       <option ><b>M/s</b></option>
+                                       <option ><b>Miss</b></option>
+                                       <option ><b>Ms</b></option>
+                                     </select>  
+                        </div> 
+                           <div class="col-sm-4">
+                               <label for="name" class="control-label"><b>CustomerName(English) <font color="red" size="4"><b>*</b></font></b></label>
+                               <input type="text"  class="form-control" name="cusNameEnglish" formControlName="cusNameEnglish" [(ngModel)]="usrName" id="name">
+                           </div>
+                           <div id="nameEnglish1Err" *ngIf="!cusNameEnglish.valid && cusNameEnglish.touched"  >
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('required')" >
+                                  <font  color="red" >{{errs.englishName}}</font>
+                                </p>
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('noSpace')" >
+                                    <font  color="red" >{{errs.nameNoSpace}} </font>
+                                </p>
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('noNumber')" >
+                                    <font  color="red" >{{errs.nameNoNumber}}</font>
+                                </p>
+                            </div> 
+                           <div class="col-sm-4">
+                               <label for="name" class="control-label"><b>CustomerName(Arabic)</b></label>
+                               <input type="text" name="cusNameArabic" formControlName="cusNameArabic" [(ngModel)]="usrNameArabic" class="form-control" id="name">
+                           </div>
+                           <div id="nameEnglish1Err" *ngIf="!cusNameArabic.valid && cusNameArabic.touched"  >
+                                <p id="customerNameErr" *ngIf="cusNameArabic.hasError('required')" >
+                                  <font color="red" >{{errs.arabicName}}</font>
+                                </p>
+                            </div> 
+                         </div>
+                           <br>
+                        <div class="row">
+                               <div class="col-sm-4">
+                                       <label for="name" class="control-label"><b>NationalId/Qama  <font color="red" size="4"><b>*</b></font></b></label>
+                                       <input type="text" name="NationalId" formControlName="NationalId" [(ngModel)]="usrNationId" class="form-control" id="name">
+                                   </div>
+                                   <div id="nameEnglish1Err" *ngIf="!NationalId.valid && NationalId.touched"  >
+                                        <p id="NationalErr" *ngIf="NationalId.hasError('required')" >
+                                            <font  color="red" > {{errs.nationalId}}</font>
+                                        </p>
+                                        <p id="nameEnglish1Err" *ngIf="NationalId.hasError('maxlength')" >
+                                            <font  color="red" >{{errs.idLength}} </font>
+                                        </p>
+                                      </div>   
+                           <div class="col-sm-4">
+                               <label for="name" class="control-label"><b>Email  <font color="red" size="4"><b>*</b></font></b></label>
+                               <input type="text"  name="mail" formControlName="mail" class="form-control" id="name">
+                           </div>
+                           <div id="nameEnglish1Err" *ngIf="!mail.valid && mail.touched"  >
+                                <p id="mailErr1" *ngIf="mail.hasError('required')" >
+                                    <font  color="red" >{{errs.mailId}} </font>
+                                </p>
+                                <p id="mailErr" *ngIf="mail.hasError('noMail')" >
+                                    <font  color="red" >{{errs.validMail}} </font>
+                                </p>
+                            </div> 
+                           <div class="col-sm-4">
+                               <label for="name" class="control-label"><b>Mobile No  <font color="red" size="4"><b>*</b></font></b></label>
+                               <input type="text" name="Mobile" value=05 formControlName="Mobile" class="form-control" id="name">
+                           </div>
+                           <div id="nameEnglish2Err" *ngIf="!Mobile.valid && Mobile.touched"  >
+                                <p id="mobileErr" *ngIf="Mobile.hasError('required')" >
+                                    <font  color="red" >{{errs.mobilNumber}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('minlength')" >
+                                    <font  color="red" >{{errs.minimumLength}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('maxlength')" >
+                                    <font  color="red" >{{errs.maximumLength}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('noMobil')" >
+                                    <font  color="red" >{{errs.countryCode}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('noMobStr')" >
+                                    <font  color="red" >{{errs.onlyNumeric}} </font>
+                                </p>
+                              </div> 
+                         </div>
+        </form>
+          </div>
+        </div>
+        </div>
+        <br>
+        <!-- second tabel -->
+        <div class="container-fluid" id="panel">
+                <div class="panel panel-primary">
+                   <div class="panel-heading clearfix" id="head">
+                  <h3 class="panel-title">Person To Insured</h3>
+                </div> 
+                  <div class="panel-body">      
+                      <form action="/action_page.php" [formGroup]="myFormObject" >   
+                               
+                        <table  class="table table-bordered">
+                         
+                                <thead>
+                                  <tr class="active">
+                                    <th>S.No</th>
+                                    <th>Passenger Name(English) <font color="red" size="4"><b>*</b></font></th>
+                                    <th>Passenger Name(Arabic) <font color="red" size="4"><b>*</b></font></th>
+                                    <th>Date Of Birth <font color="red" size="4"><b>*</b></font></th>
+                                    <th>Gender <font color="red" size="4"><b>*</b></font></th>
+                                    <th>Relations <font color="red" size="4"><b>*</b></font></th>
+                                    <th>Nationality <font color="red" size="4"><b>*</b></font></th>
+                                    <th>lqama No/National Id</th>
+                                    <th>Passport Number</th>
+                                    <th>Passport Expiry Date</th>
+                                    <th>Delete</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><input type=""  style="width:50px;" formControlName="Sno" value="{{sno}}" class="form-control"/> </td>
+                                    <td><input type="text1" value="{{usrName}}" name="name" formControlName="passengerName" class="form-control" id="name"></td>
+                                    <td><input type="text1" name="name" value="{{usrNameArabic}}"formControlName="passengerNameArabic" class="form-control" id="name"></td>
+                                    <td><input placeholder="DD/MM/YYYY" formControlName="myDob" class="form-control" type="date"/></td>
+                                    <td><select style="height:35px;width:95px;" class="form-control" formControlName="myGender">
+                                          <option>Male</option>
+                                          <option>Female</option>
+                                        </select></td>
+                                    <td>
+                                            <select *ngIf="!morePerson" value="self" style="height:35px;width:100px;" formControlName="myRelation"  class="form-control">
+                                                    <option >self</option>
+                                                  </select>
+                                                  <select *ngIf="morePerson" style="height:35px;width:100px;" formControlName="myRelation"  class="form-control">
+                                                      <option *ngFor="let rel of relationArray">{{rel.relationType}}</option>
+                                                  </select>
+                                    </td>
+                                    <td>
+                                            <select formControlName="myNation" id="nationality"style="width:120px;height:35px;"  class="form-control">
+                                                    <option *ngFor="let nation of nationArr" >{{nation.nationalityName}}</option>
+                                                  </select>
+                                    </td>
+                                    <td><input type="text1" formControlName="NationalId" value="{{usrNationId}}" name="name" class="form-control" id="name"></td>
+                                    <td><input type="text1" formControlName="passName" name="name" class="form-control" id="name"></td>
+                                    <td><input placeholder="DD/MM/YYYY" formControlName="passExpireDate" class="form-control" type="date"/></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                                
+                              </table>
+                              <br>
+                              <div *ngIf="!passengerName.valid && passengerName.touched"  >
+                                    <p *ngIf="passengerName.hasError('required')" style="width:200px;" >
+                                     <font color="red"> please fill the name in english</font>
+                                    </p>
+                                    <p *ngIf="passengerName.hasError('noSpace')" >
+                                    <font color="red">Name Should not have space</font>
+                                    </p>
+                                    <p *ngIf="passengerName.hasError('noNumber')" >
+                                    <font color="red"> Name Should not have Number</font>
+                                    </p>
+                                  </div> 
+                                  <div *ngIf="!passengerNameArabic.valid && passengerNameArabic.touched"  >
+                                        <p *ngIf="passengerNameArabic.hasError('required')" >
+                                          <font color="red">please fill the arabic name</font>
+                                        </p>
+                                      </div> 
+                                      <div *ngIf="!NationalId.valid && NationalId.touched" >
+                                       <p *ngIf="NationalId.hasError('required')" >
+                                            <font color="red"> please enter the national id</font>
+                                       </p>
+                                       <p *ngIf="NationalId.hasError('maxlength')" >
+                                            <font color="red">  National Id Should not more than 18 character</font>
+                                       </p>
+                                      </div> 
+                                        <div *ngIf="!passName.valid && passName.touched"  >
+                                        <p *ngIf="passName.hasError('required')" >
+                                            <font color="red">  please fill the passport Number</font>
+                                        </p>
+                                        <p id="pasportErr" *ngIf="passName.hasError('passNumber')" >
+                                            <font color="red">   please enter the valid Passport number</font>
+                                        </p>
+                                     </div> 
+                              <br>
+                              <button type="button" class="btn btn-success" (click)="incrementSno()" id="button">Add More</button>
+                              <button type="button" class="btn btn-danger"id="button">Delete</button>
+                </form>
+                  </div>
+                </div>
+                </div>
+
+                <!--thired tabel-->
+                <div class="container-fluid" id="panel">
+                        <div class="panel panel-primary">
+                           <div class="panel-heading clearfix" id="head">
+                          <h3 class="panel-title">TRAVEL COVERS</h3>
+                        </div> 
+                          <div class="panel-body">      
+                              <form action="/action_page.php">
+                                <br>                
+                                <label class="radio-inline">
+                                        <input type="radio" name="optradio"><b>KSA</b>
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="optradio"><b>MIDDLE EAST</b>
+                                      </label>
+                                      <label class="radio-inline">
+                                        <input type="radio" name="optradio"><b>EUROPE</b>
+                                      </label>  
+                                      <label class="radio-inline">
+                                            <input type="radio" name="optradio"><b>WORLDWIDE(EXCLUDING USA & CANDA)</b>
+                                          </label>          
+                                          <label class="radio-inline">
+                                                <input type="radio" name="optradio"><b>WORLDWIDE</b>
+                                              </label>
+                                              <br>   
+                                            
+                                    </form>
+                          </div>
+                        </div>
+                        </div>
+                       
+                    
+                        <div class="container-fluid" id="panel">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading clearfix" id="head">
+                                        <h3 class="panel-title">TRAVEL PERIOD</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form action="/action_page.php">
+                            
+                                    <div class="row">
+                                                 <div class="col-sm-4">
+                                                  <label class="control-label">
+                                                 <b>Cover Period</b><font color="red" size="4"><b>*</b></font>
+                                                </label>
+                                                <!-- <input type="text1" name="name" class="form-control" id="name"> -->
+                                                <select id="days" style="height:35px;" [(ngModel)]="NoDays"  class="form-control">
+                                                        <option>&nbsp;&nbsp;---Select---</option>
+                                                        <option >15 Days</option>
+                                                        <option >30 Days</option>
+                                                        <option >45 Days</option>
+                                                        <option >60 Days</option>
+                                                        <option >90 Days</option>
+                                                        </select>
+                                                 </div>
+                                                    
+                                                 <div class="col-sm-4">
+                                                   <label class="control-lable">
+                                                       <b>Inception Date</b><font color="red" size="4"><b>*</b></font>
+                                                    </label>
+                                                    <input placeholder="DD/MM/YYYY" [(ngModel)]="incepDate" class="form-control" type="date" />
+                                                 </div>
+                            
+                                                <div class="col-sm-4">
+                                                    <label for="name" class="control-label">
+                                                        <b>Expiry Date</b><font color="red" size="4"><b>*</b></font>
+                                                    </label>
+                                                    <input type="text1" name="name" value="{{Number(NoDays)+Number(incepDate)}}" class="form-control" id="name">
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div id="last" hidden="true" class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading clearfix">
+                                                <h3 class="panel-title">Premium Information<span class="badge"></span></h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <!-- <p style="position: relative;height:100px;border:1px;border-color:blueviolet;">
+                                                    <span style="background-color: blueviolet;height:30px;width:200px;" class="badge">hgjtujt</span>
+                                                </p> -->
+                                                <div style="position: relative;width:400px;" class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-danger">
+                                                                <div class="panel-heading clearfix">
+                                                                    <h3 class="panel-title">Plane c  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+                                                                    <button style="height:32px;" class="btn btn-success">View cover</button>&nbsp; &nbsp; &nbsp; 
+                                                                    Sar &nbsp; &nbsp; &nbsp; 278
+                                                                </h3>
+                                                                </div>
+                                                                <div class="panel panel-warning">
+                                                                <div class="panel-heading clearfix">
+                                                                        <i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Basic Premium&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  278
+                                                                            
+                                                                    </div>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                        &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                                   <button class="btn btn-success" (click)="MoveNextPage()">Buy Policy</button>
+                                                                   <button class="btn btn-info">Email Quote</button>
+                                                                </div>
+                                                          </div>    
+                                                        </div>
+                                                    </div>
+                                                    <!--hjjjjjjjjjjjjjjjj-->
+                                                    <div style="position: relative;width:400px;float:right;bottom:230px;" class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="panel panel-info">
+                                                                    <div class="panel-heading clearfix">
+                                                                        <h3 class="panel-title">Plane A+  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+                                                                    <button style="height:32px;"class="btn btn-success">View cover</button>&nbsp; &nbsp; &nbsp; 
+                                                                    Sar &nbsp; &nbsp; &nbsp; 127
+                                                                </h3>
+                                                                    </div>
+                                                                    <div class="panel panel-success">
+                                                                    <div class="panel-heading clearfix">
+                                                                            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Basic Premium&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  127
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                                       <button class="btn btn-success" (click)="MoveNextPage()">Buy Policy</button>
+                                                                       <button class="btn btn-info">Email Quote</button>
+                                                                    </div>
+                                                              </div>    
+                                                            </div>
+                                                        </div>
+                                                        <!--hjjjjjjjjjjjjjjjj-->
+                                                    <div style="position: relative;width:400px;float:right;right:80px;bottom:230px;" class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="panel panel-primary">
+                                                                    <div class="panel-heading clearfix">
+                                                                            <h3 class="panel-title">Plane b  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+                                                                                    <button style="height:32px;" class="btn btn-success">View cover</button>&nbsp; &nbsp; &nbsp; 
+                                                                                    Sar &nbsp; &nbsp; &nbsp; 227
+                                                                                </h3>
+                                                                    </div>
+                                                                    <div class="panel panel-info">
+                                                                    <div class="panel-heading clearfix">
+                                                                            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Basic Premium&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  227
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                                       <button class="btn btn-success" (click)="MoveNextPage()">Buy Policy</button>
+                                                                       <button class="btn btn-info">Email Quote</button>
+                                                                    </div>
+                                                              </div>    
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                      </div>    
+                                    </div>
+                                </div>
+                                <div *ngIf="!passengerName.valid" style="position:relative;left:600px;">
+                                <button  class="btn btn-success"   >Calculate</button>
+                                <p><font color="red" >please fill all the details and click Calculate</font></p>
+                            </div>
+
+
+                            <button style="position:relative;left:600px;" *ngIf="passengerName.valid && passengerName.touched" class="btn btn-success" type="submit" (click)="submit(myFormObject.value, myFormObject.valid)" >Calculate</button>
+                    </form>
+                        
+
+                        
+
+<!-- <img id="planeImg"[@myAwesomeAnimation]='state' (mousemove)="animateMe()" src="assets/Images/plane.jpg">
+
+                        <form class="form-horizontal" action="" [formGroup]="myFormObject" (ngSubmit)="submit(myFormObject.value, myFormObject.valid)" role="form">
+                            <div id="total1"> 
+                                    <p id="head1"class="panel-title text-center" ><font top="30px;" color="white"><i class="fa fa-sign-in" aria-hidden="true"></i>INSURED INFORMATION</font></p>
+                            
+                                    <div id="tittle1"  style="margin-bottom: 25px; top:20px;" class="input-group col-sm-offset-1 col-sm-7">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user">Tittle</i></span>
+                                            <select value="select" class="form-control" formControlName="cusNameEnglishHeader" style="height:35px;"   class="form-control">
+                                                <option>Mr</option>
+                                                <option >Mrs</option>
+                                                <option >Dr</option>
+                                                <option >M/s</option>
+                                                <option >Miss</option>
+                                                <option >Ms</option>
+                                              </select>  
+                                                                                                             
+                                    </div>    
+                                <div id="nameEnglish1"  class="input-group col-sm-offset-1 col-sm-7">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user">CustomerName(English)</i></span>
+                                    <input type="text" class="form-control" name="cusNameEnglish" formControlName="cusNameEnglish" value="" placeholder="Ex:abcd">  
+                                </div>
+                            <div id="nameEnglish1Err" *ngIf="!cusNameEnglish.valid && cusNameEnglish.touched"  >
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('required')" >
+                                  <font  color="red" >{{errs.englishName}}</font>
+                                </p>
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('noSpace')" >
+                                    <font  color="red" >{{errs.nameNoSpace}} </font>
+                                </p>
+                                <p id="cusNameEngErr" *ngIf="cusNameEnglish.hasError('noNumber')" >
+                                    <font  color="red" >{{errs.nameNoNumber}}</font>
+                                </p>
+                            </div> 
+                            <div id="customerNameArabic1" style="margin-bottom: 25px" class="input-group col-sm-offset-1 col-sm-7">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user">customerName(Arabic)</i></span>
+                                <input  class="form-control"  value="" name="cusNameArabic" formControlName="cusNameArabic" placeholder="Ex:عالي " >  
+                            </div>
+                            <div id="customerNameArabic1Err" *ngIf="!cusNameArabic.valid && cusNameArabic.touched"  >
+                                <p id="customerNameErr" *ngIf="cusNameArabic.hasError('required')" >
+                                  <font color="red" >{{errs.arabicName}}</font>
+                                </p>
+                            </div> 
+                            <div id="National1" style="margin-bottom: 25px" class="input-group col-sm-offset-1 col-sm-7">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign">National ID / Iqama</i></span>
+                                <input class="form-control" value="" name="NationalId" formControlName="NationalId"  placeholder="Ex:45763764" >
+                            </div>
+                            <div id="National1Err" *ngIf="!NationalId.valid && NationalId.touched"  >
+                                <p id="NationalErr" *ngIf="NationalId.hasError('required')" >
+                                    <font  color="red" > {{errs.nationalId}}</font>
+                                </p>
+                                <p id="NationalErr" *ngIf="NationalId.hasError('maxlength')" >
+                                    <font  color="red" >{{errs.idLength}} </font>
+                                </p>
+                              </div>   
+                            <div id="mail1" style="margin-bottom: 25px" class="input-group col-sm-offset-1 col-sm-7">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope">E-mail</i></span>
+                                <input  class="form-control"  value="" name="mail" formControlName="mail" placeholder="Ex:abcd@gmail.com" >
+                            </div>
+                            <div id="mail1Err1" *ngIf="!mail.valid && mail.touched"  >
+                                <p id="mailErr1" *ngIf="mail.hasError('required')" >
+                                    <font  color="red" >{{errs.mailId}} </font>
+                                </p>
+                                <p id="mailErr" *ngIf="mail.hasError('noMail')" >
+                                    <font  color="red" >{{errs.validMail}} </font>
+                                </p>
+                            </div> 
+                            <div id="mobile1" style="margin-bottom: 25px" class="input-group col-sm-offset-1 col-sm-7">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone">mobile No</i></span>
+                                <input  class="form-control" value="05" name="Mobile" formControlName="Mobile" placeholder="Ex:059123456789" >
+                            </div>
+                            <div id="mobile1Err1" *ngIf="!Mobile.valid && Mobile.touched"  >
+                                <p id="mobileErr" *ngIf="Mobile.hasError('required')" >
+                                    <font  color="red" >{{errs.mobilNumber}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('minlength')" >
+                                    <font  color="red" >{{errs.minimumLength}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('maxlength')" >
+                                    <font  color="red" >{{errs.maximumLength}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('noMobil')" >
+                                    <font  color="red" >{{errs.countryCode}} </font>
+                                </p>
+                                <p id="mobileErr" *ngIf="Mobile.hasError('noMobStr')" >
+                                    <font  color="red" >{{errs.onlyNumeric}} </font>
+                                </p>
+                              </div> 
+                             
+                              </div>
+                        </form> -->
+                   
+    
+
+
+
+  

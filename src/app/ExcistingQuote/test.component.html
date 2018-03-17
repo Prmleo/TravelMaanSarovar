@@ -1,0 +1,502 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<app-nav-bar></app-nav-bar>
+<main class="app-main in" id="app-main">
+    <div class="container-fluid">
+        <div class="wrap">
+            <form role="form" #frm="ngForm"> 
+            <section class="app-content">
+                <div class="row list_view" style="display:block">
+                    <div class="col-md-12">
+                        <div class="widget p-lg">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="m-b-lg">Show entry</h4>
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <div class="input-group">
+                                        <input type="text" name="SelectedName" class="form-control" id="inputPassword3" (change)='loadOutletRegistrationByName(SelectedName)' placeholder="Search Your Name" required [(ngModel)]='SelectedName'>
+                                        <div class="input-group-btn">
+                    
+                                            
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <a class="pull-right back_btn btn btn-primary" (click)='backAadhaar()'><i class="fa fa-angle-left"></i> Back</a>
+                                </div> -->
+                            </div>	
+                            
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Quote No</th>
+                                        <th>Customer Name</th>
+                                        <th>Quote Date</th>
+                                        <th>validity Date</th>
+                                        <th>Premimum</th>
+                                        <th>Edit</th>
+                                        <th>Reject</th>
+                                    </tr>
+                                    <tr *ngFor="let card of storeArray;let i = index "> 
+                                        <td>{{i+1}}</td> 
+                                        <td>{{card.QUOTE_NO}}</td> 
+                                        <td>{{card.CUSTOMER_NAME}}</td> 	  
+                                        <td>{{card.QUOTATION_DATE}}</td>
+                                        <td>{{card.VALIDITY_DATE}}</td>
+                                        <td>{{card.PREMIUM}}</td>
+                                        <td><button class="btn btn-warning" style="font-size:15px"><i class="fa fa-edit"></i></button></td>
+                                        <td><button class="btn btn-danger" style="font-size:15px"><i class="fa fa-remove"></i></button></td>
+                                    </tr>
+                                     
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </section><!-- #dash-content -->
+            </form>
+        </div><!-- .wrap -->
+    </div>
+</main><!-- .wrap -->
+    
+    
+    
+    <!--
+    <form [formGroup]="myFormObject">
+            <div>   
+                <div class="container">    
+                    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-12 col-md-offset-1 col-sm-1 col-sm-offset-12">                    
+                        <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    <div class="panel-title text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> Insured Information</div>
+                </div> 
+              <table>
+                 <tr>
+                   <th><font size="2px">S.No</font></th>
+                   <th > <font size="2px">Passenger Name(English) </font></th>
+                   <th><font size="2px">Passenger Name(Arabic)</font></th>
+                   <th><font size="2px">Date Of Birth</font></th>
+                   <th><font size="2px">Gender</font></th>
+                   <th><font size="2px">Relations</font></th>
+                   <th><font size="2px">Nationality</font></th>
+                   <th><font size="2px">Iqama No/National ID</font></th>
+                   <th><font size="2px">PassportNumber</font></th>
+                   <th><font size="2px">PassportExpieryDate</font></th>
+                   <th><font size="2px">Delete</font></th>
+                 </tr>
+                   <tr>
+                     <td><input type="" class="form-control"/></td>
+                     <td><input  class="form-control"  formControlName="passengerName"/></td>
+                     
+                     <td><input  formControlName="passengerNameArabic"   class="form-control"/></td>
+                     <td><input placeholder="DD/MM/YYYY" type="date"  class="form-control"/></td>
+                     <td>
+                       <select   class="form-control">
+                         <option>Male</option>
+                         <option>Female</option>
+                       </select>
+                     </td>
+                     <td><select    class="form-control">
+                         <option *ngFor="let rel of relationArray">{{rel.codeDesc}}</option>
+                     </select></td>
+                     <td>
+                         
+                       <select class="form-control" id="rlgn" name='cardNumber' [(ngModel)]="myNationality.cardNumber" placeholder="Select Religion" (change)='loadAllReferenceNumberId()'>
+                         <option *ngFor='let r of cardNumber' [value]="r.id">{{r.cardNumber}}</option>
+                     </select>    
+         
+                        <select id="nationality"  class="form-control">
+                         <option *ngFor="let nation of nArray">{{nation.codeDesc}}</option>
+                       </select>
+                     </td>
+                     <td><input  formControlName="NationalId"   class="form-control"/></td>
+                     <td><input  formControlName="passName" class="form-control"/></td>
+                     <td><input type="date"   class="form-control"/></td>
+                     <td><input  class="form-control"/></td>
+                   </tr>
+                 </table>  
+                 <br>
+                 <button class="btn btn-success">Submit</button>
+                 <br>
+             </div>
+             <div *ngIf="!passengerName.valid && passengerName.touched"  class="alert alert-danger">
+               <p *ngIf="passengerName.hasError('required')" >
+                 please fill the name in english
+               </p>
+               <p *ngIf="passengerName.hasError('noSpace')" >
+                 Name Should not have space
+             </p>
+             <p *ngIf="passengerName.hasError('noNumber')" >
+                 Name Should not have Number
+             </p>
+           </div> 
+           <div *ngIf="!passengerNameArabic.valid && passengerNameArabic.touched"  class="alert alert-danger">
+             <p *ngIf="passengerNameArabic.hasError('required')" >
+               please fill the arabic name
+             </p>
+         </div> 
+         <div *ngIf="!NationalId.valid && NationalId.touched"  class="alert alert-danger">
+           <p *ngIf="NationalId.hasError('required')" >
+               please enter the national id
+           </p>
+           <p *ngIf="NationalId.hasError('maxlength')" >
+               National Id Should not more than 18 character
+           </p>
+         </div> 
+         <div *ngIf="!passName.valid && passName.touched"  class="alert alert-danger">
+           <p *ngIf="passName.hasError('required')" >
+             please fill the passport Number
+           </p>
+           <p *ngIf="passName.hasError('passNumber')" >
+             please enter the valid Passport number
+         </p>
+         </div>  
+     </div>
+     </div>
+     </div>
+   
+   
+    <br><br><br>
+</form>
+
+<br><br>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    PERSON TO INSURE
+  </div>
+  <div class="panel-body" id="travellersInfo">
+    <div class="row">
+      <table width="100%" class="footable perInsu" id="TravelTable">
+        <thead>
+        <tr>
+          <th width="3%"> S. No. </th>
+          <th width="12%"> Passenger  Name English)<font color="red">*</font> </th>
+          <th width="10%"> Passenger Name(Arabic)<font color="red">*</font> </th>
+          <th width="10%"> Date Of Birth<font color="red">*</font> </th>
+          <th width="10%"> Gender<font color="red">*</font> </th>
+          <th width="10%"> Relations<font color="red">*</font> </th>
+          <th width="10%"> Nationality <font color="red">*</font> </th>
+          <th width="12%">Iqama No/National ID</th>
+          <th width="12%">Passport Number</th>
+          <th width="10%">Passport Expiry Date</th>
+          <th width="3%"> Delete </th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        
+          <tr>
+            <td align="center">
+              1
+              <input type="hidden" name="travelList[0]" value="1" id="travelList0"/>
+              <input type="hidden" name="serialNos[0]" value="1" id="serialNos0"/>
+            </td>
+            <td align="right">
+              <input type="text" name="travelNames[0]" maxlength="120" value="" id="travelNames[0]" class="inputBox tooltipContent"/>
+            </td>
+            <td align="right">
+              <input type="text" name="travelLastNames[0]" maxlength="120" value="" id="travelLastNames[0]" class="inputBox tooltipContent"/>
+            </td>
+            <td align="right"> 
+              <input type="text" name="dobs[0]" maxlength="10" value="" id="dobs0" class="inputBox datePicker dobDatePikcer tooltipContent" placeholder="DD/MM/YYYY"/>
+            </td>
+            <td align="right">
+              <select name="genders[0]" id="genders[0]" class="inputBoxS tooltipContent" onchange="setMode();" data-content="Gender">
+<option value=""
+>-----Select-----</option>
+<option value="M">Male</option>
+<option value="F">Female</option>
+
+
+</select>
+
+
+            </td>
+            
+            <td align="right">
+              <select name="relations[0]" disabled="disabled" id="relations[0]" class="inputBoxS tooltipContent" onchange="setMode();" data-content="Relations">
+<option value=""
+>-----Select-----</option>
+<option value="1" selected="selected">Self</option>
+<option value="3">Child</option>
+<option value="6">Others</option>
+<option value="5">Mother</option>
+<option value="4">Father</option>
+<option value="2">Spouse</option>
+
+
+</select>
+
+
+            </td>
+            
+            
+            
+            <td align="right">
+              <select name="nationalitys[0]" id="nationalitys[0]" class="inputBoxS tooltipContent" onchange="setMode();" data-content="Nationality">
+<option value=""
+>---Select---</option>
+<option value="Algerian">Algerian</option>
+<option value="American">American</option>
+<option value="Angolan">Angolan</option>
+<option value="Australian">Australian</option>
+<option value="Austrian">Austrian</option>
+<option value="Bahraini">Bahraini</option>
+<option value="Belgian">Belgian</option>
+<option value="Britain">Britain</option>
+<option value="Brunei">Brunei</option>
+<option value="Bukina Faso">Bukina Faso</option>
+<option value="Canadian">Canadian</option>
+<option value="Chadian">Chadian</option>
+<option value="Chinese">Chinese</option>
+<option value="Cubian">Cubian</option>
+<option value="Danish">Danish</option>
+<option value="Dutch">Dutch</option>
+<option value="Egyptian">Egyptian</option>
+<option value="Emirati">Emirati</option>
+<option value="Eritriean">Eritriean</option>
+<option value="French">French</option>
+<option value="German">German</option>
+<option value="Greek">Greek</option>
+<option value="Hong Kong">Hong Kong</option>
+<option value="ISRAEL">ISRAEL</option>
+<option value="Indian">Indian</option>
+<option value="Indonesian">Indonesian</option>
+<option value="Iranian">Iranian</option>
+<option value="Iraqi">Iraqi</option>
+<option value="Irish">Irish</option>
+<option value="Italian">Italian</option>
+<option value="Japanese">Japanese</option>
+<option value="Jordanian">Jordanian</option>
+<option value="Korean">Korean</option>
+<option value="Korean">Korean</option>
+<option value="Krygyzstan">Krygyzstan</option>
+<option value="Kuwaiti">Kuwaiti</option>
+<option value="Lebanese">Lebanese</option>
+<option value="Libyan">Libyan</option>
+<option value="Malagasy">Malagasy</option>
+<option value="Malaysian">Malaysian</option>
+<option value="Maldives">Maldives</option>
+<option value="Mauritanian">Mauritanian</option>
+<option value="Mauritian">Mauritian</option>
+<option value="Moldovan">Moldovan</option>
+<option value="Moroccan">Moroccan</option>
+<option value="Muscat">Muscat</option>
+<option value="Nepali">Nepali</option>
+<option value="Netherland">Netherland</option>
+<option value="New Guinean">New Guinean</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Nigerian">Nigerian</option>
+<option value="Nigerien">Nigerien</option>
+<option value="Norwegian">Norwegian</option>
+<option value="Omani">Omani</option>
+<option value="Pakistani">Pakistani</option>
+<option value="Philippine">Philippine</option>
+<option value="Polish">Polish</option>
+<option value="Qatari">Qatari</option>
+<option value="Saudi Arabian">Saudi Arabian</option>
+<option value="Senegalese">Senegalese</option>
+<option value="Singaporean">Singaporean</option>
+<option value="South African">South African</option>
+<option value="Spaini">Spaini</option>
+<option value="Sri Lankan">Sri Lankan</option>
+<option value="Sudanese">Sudanese</option>
+<option value="Swedish">Swedish</option>
+<option value="Swiss">Swiss</option>
+<option value="Syrian">Syrian</option>
+<option value="Taiwani">Taiwani</option>
+<option value="Tajikan">Tajikan</option>
+<option value="Thai">Thai</option>
+<option value="Tincan">Tincan</option>
+<option value="Tunisian">Tunisian</option>
+<option value="Turkish">Turkish</option>
+<option value="Ukranian">Ukranian</option>
+<option value="Yemeni">Yemeni</option>
+<option value="belarun">belarun</option>
+<option value="kazakhstan">kazakhstan</option>
+<option value="mayatemn">mayatemn</option>
+<option value="sudan">sudan</option>
+
+
+</select>
+
+
+            </td>
+            <td align="right"> <input type="text" name="iqamaNo[0]" maxlength="10" value="" id="iqamaNo[0]" class="inputBox tooltipContent" data-content="Iqama No."/> </td>
+            <td align="right"> <input type="text" name="passportNo[0]" maxlength="10" value="" id="travel_passportNo_0_" class="inputBox tooltipContent" data-content="Passport No."/> </td>
+            <td align="right"> <input type="text" name="passportExpDate[0]" value="" id="passportExpDate0" class="inputBox datePicker passExpDate tooltipContent" placeholder="DD/MM/YYYY"/> </td>
+            <td align="right">
+              
+              
+              
+               <input type="hidden" name="deleteRow[0]" value="1" id="0"/>
+               
+            </td>
+          </tr>
+        
+        
+        </tbody>
+      </table>
+      <br class="clear"/>
+      <div class="pullRight">
+        <input type="button" id="addmore" class="btn btn-sm btn-primary" name="addmore" data-content="Add More" value="Add More" onclick="addNewRow();" />
+        <input type="button" id="deleteTravellers" class="btn btn-sm btn-danger" name="delete" data-content="Delete Records" value="Delete"/>
+      <input type="hidden" name="selectedBox" value="" id="travel_selectedBox"/>
+      </div>
+      <br class="clear"/>
+    </div>
+  </div>
+</div>
+     
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    TRAVEL COVERS
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <input type="radio" name="travelCover" id="travel_travelCover1" value="1" onchange="setMode();"/><label for="travel_travelCover1">Schengen Countries</label>
+<input type="radio" name="travelCover" id="travel_travelCover2" value="2" onchange="setMode();"/><label for="travel_travelCover2">WorldWide</label>
+<input type="radio" name="travelCover" id="travel_travelCover3" value="3" onchange="setMode();"/><label for="travel_travelCover3">Excluding USA & Canada</label>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Travel Period
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="text"> Cover Period <font color="red">*</font> </div>
+        <div class="tbox">
+          <select name="coverPeriod" id="coverPeriod" class="inputBoxS tooltipContent" onchange="getExpiryDate(this.form)" data-content="Cover Period">
+<option value="-1"
+>---Select---</option>
+<option value="7">7 Days</option>
+<option value="10">10 Days</option>
+<option value="15">15 Days</option>
+<option value="21">21 Days</option>
+<option value="30">30 Days</option>
+<option value="60">60 Days</option>
+<option value="90">90 Days</option>
+<option value="180">180 Days</option>
+<option value="365">365 Days</option>
+<option value="366">366 Days</option>
+
+
+</select>
+
+
+        
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="text"> Inception Date (DD/MM/YYYY)<font color="red">*</font> </div>
+        <div class="tbox">
+          <input type="text" name="inceptionDt" value="" id="inceptionDt" class="inputBox datePicker tooltipContent" onchange="getExpiryDate(this.form)" placeholder="DD/MM/YYYY"/>
+          
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="text"> Expiry Date  <font color="red">*</font> </div>
+        <div class="tbox">
+          <input type="text" name="expiryDt" value="" readonly="readonly" id="inceptionEndDate" class="inputBox tooltipContent" data-content=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br class="clear"/>
+<div align="center">
+  
+<input type="button" name="Submit1" class="btn btn-sm btn-danger" value="Back" onclick="getBack('customer');disableForm(this.form,false,'');" />
+&nbsp;&nbsp;&nbsp;
+
+
+  <input type="button" name="Submit4" class="btn btn-sm btn-success" value="Calculate" onclick="this.form.schemeCover.value='';this.form.mode.value='';this.form.actionType.value='getQuote';disableForm(this.form,false,'');this.form.submit();"/>
+
+  <input type="hidden" name="display" value="getQuote" id="travel_display"/>
+  <input type="hidden" name="actionType" value="" id="travel_actionType"/>
+  
+  <input type="hidden" name="applicationNo" value="" id="travel_applicationNo"/>
+  <input type="hidden" name="quoteNo" value="" id="travel_quoteNo"/>	           
+  <input type="hidden" name="serialNo" value="0" id="travel_serialNo"/>
+  <input type="hidden" name="quoteStatus" value="QE" id="travel_quoteStatus"/>
+  <input type="hidden" name="endTypeId" value="" id="travel_endTypeId"/>
+  <input type="hidden" name="brokerCompany" value="" id="travel_brokerCompany"/>
+  <input type="hidden" name="policyNo" value="" id="travel_policyNo"/>
+  <input type="hidden" name="entryDate" value="" id="travel_entryDate"/>
+  <input type="hidden" name="amendId" value="" id="travel_amendId"/>
+  <input type="hidden" name="schemeCover" value="" id="travel_schemeCover"/>
+  <input type="hidden" name="mode" value="" id="mode"/>
+  <input type="hidden" name="referralMsg" value="" id="travel_referralMsg"/>
+  <input type="hidden" name="coreAppCode" value="" id="coreAppCode"/>
+  <input type="hidden" name="custArNo" value="" id="custArNo"/>	                           
+</div>
+</div>
+</div>
+</form>
+</div>
+
+</div>  
+<main class="app-main in" id="app-main">
+  <div class="container-fluid">
+      <div class="wrap">
+          <form role="form" #frm="ngForm"> 
+          <section class="app-content">
+              <div class="row list_view" style="display:block">
+                  <div class="col-md-12">
+                      <div class="widget p-lg">
+                          <div class="row">
+                              <div class="col-md-8">
+                                  <h4 class="m-b-lg">Show entry</h4>
+                              </div>
+                              <div class="col-md-4">
+                                  <a class="pull-right back_btn btn btn-primary" (click)='backAadhaar()'><i class="fa fa-angle-left"></i> Back</a>
+                              </div>
+                          </div>	
+                          
+                          <table class="table table-bordered">
+                              <tbody>
+                                  <tr>
+                                      <th>S.No</th>
+                                      <th>Quote No</th>
+                  <th>Customer Name</th>
+                  <th>Quote Date</th>
+                  <th>validity Date</th>
+                  <th>Premimum</th>
+                  <th>Edit</th>
+                  <th>Reject</th>
+                                  </tr>
+                                  <tr *ngFor="let card of cardNumbers"> 
+                                    <td>{{card.cardNumber}}</td> 
+                                      <td>{{card.encryptCardno}}</td> 
+                                      <td>{{card.referenceNumber}}</td> 	  
+                               </tr>
+                                   
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              
+          </section><!-- #dash-content 
+          </form>
+      </div><!-- .wrap 
+  </div>
+</main>-->
+

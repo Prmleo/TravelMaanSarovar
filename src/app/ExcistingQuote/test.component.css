@@ -1,0 +1,16 @@
+#head
+{
+    
+}
+#mypanel{
+    position: relative;
+  
+    width:100px;
+    
+}
+#loginbox
+{
+    position: relative;
+    right: 180px;
+    width: 1500px;
+}
